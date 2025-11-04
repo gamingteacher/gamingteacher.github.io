@@ -1,10 +1,7 @@
+/* Background */
 body {
     background-image: url('background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
