@@ -53,88 +53,12 @@
                             <!-- Content panel -->
                             <div class="w-full bg-white/80 text-grey rounded-3xl shadow-lg backdrop-blur-lg p-6 md:p-10 md:h-[520px] min-h-[380px] overflow-y-auto">
                                 <h2 class="text-3xl md:text-4xl font-bold mb-6 text-red">Publicações e Destaques</h2>
-                                
-                                <!-- Grid de publicações -->
-                                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                                    <!-- Publicação 1 -->
-                                    <div class="publication-card cursor-pointer bg-grey/10 border border-white/10 rounded-lg p-4 transition-all" onclick="toggleDetails(1)">
-                                        <div class="aspect-[2/3] mb-2 flex flex-col items-center justify-center bg-white rounded p-2">
-                                            <p class="text-left text-grey font-bold text-lg">Videogames na aprendizagem formal de Língua Inglesa</p>
-                                        </div>
-                                        <p class="text-xs text-right text-grey font-bold">Valadares; Coelho, 2022</p>
-                                    </div>
 
-                                    <!-- Publicação 2 -->
-                                    <div class="publication-card cursor-pointer bg-grey/10 border border-white/10 rounded-lg p-4 transition-all" onclick="toggleDetails(2)">
-                                        <div class="aspect-[2/3] mb-2 flex items-center justify-center bg-white rounded">
-                                            <img src="./images/Thumb1.png" alt="Capa" class="w-full h-full object-cover rounded">
-                                        </div>
-                                        <p class="text-xs text-right text-grey font-bold">Valadares, 2023</p>
-                                    </div>
+                                <!-- Grid dinâmico de publicações -->
+                                <div id="pub-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
 
-                                    <!-- Publicação 3 -->
-                                    <div class="publication-card cursor-pointer bg-grey/10 border border-white/10 rounded-lg p-4 transition-all" onclick="toggleDetails(3)">
-                                        <div class="aspect-[2/3] mb-2 flex flex-col items-center justify-center bg-white rounded p-2">
-                                            <img src="./images/Thumb2.png" alt="Capa" class="w-full h-full object-cover rounded">
-                                        </div>
-                                        <p class="text-xs text-right text-grey font-bold">Valadares; Garcia, 2022</p>
-                                    </div>
-
-                                    <!-- Publicação 4 -->
-                                    <div class="publication-card cursor-pointer bg-grey/10 border border-white/10 rounded-lg p-4 transition-all" onclick="toggleDetails(4)">
-                                        <div class="aspect-[2/3] mb-2 flex flex-col items-center justify-center bg-white rounded p-2">
-                                            <img src="./images/Thumb3.png" alt="Capa" class="w-full h-full object-cover rounded">
-                                        </div>
-                                        <p class="text-xs text-right text-grey font-bold">Valadares, 2025</p>
-                                    </div>
-
-                                    <!-- Publicação 5 -->
-                                </div>
-
-                                <!-- Detalhes das publicações (expandem ao clicar) -->
-                                <div id="details-1" class="hidden mt-6 p-6 bg-white border-l-4 border-red rounded-lg shadow-lg animate-fadeIn">
-                                    <button onclick="toggleDetails(1)" class="float-right text-red hover:text-grey">✕</button>
-                                    <h3 class="text-xl font-bold mb-2 underline">
-                                        <a href="http://www.entrepalavras.ufc.br/revista/index.php/Revista/article/view/2243" target="_blank" rel="noopener noreferrer">
-                                            Artigo - Videogames na aprendizagem formal de Língua Inglesa
-                                        </a>
-                                    </h3></h3>
-                                    <p class="text-sm">VALADARES, C. H. R.; COELHO, H. S. H. . Videogames na aprendizagem formal de Língua Inglesa. Revista Entrepalavras, v. 11, p. 1-22, 2022.</p>
-                                </div>
-
-                                <div id="details-2" class="hidden mt-6 p-6 bg-white border-l-4 border-red rounded-lg shadow-lg animate-fadeIn">
-                                    <button onclick="toggleDetails(2)" class="float-right text-red hover:text-grey">✕</button>
-                                    <h3 class="text-xl font-bold mb-2 underline">
-                                        <a href="http://hdl.handle.net/1843/57295" target="_blank" rel="noopener noreferrer">
-                                            Dissertação de Mestrado: Tomando o controle: affordances de jogos digitais para aprender e ensinar línguas adicionais
-                                        </a>
-                                    </h3>
-                                    <p class="text-sm">VALADARES, C. H. R. Tomando o controle: affordances de jogos digitais para aprender e ensinar línguas adicionais. 133f. Dissertação (Mestrado em Estudos Linguísticos). Faculdade de Letras, Universidade Federal de Minas Gerais, Belo Horizonte, 2023.</p>
-                                </div>
-
-                                <div id="details-3" class="hidden mt-6 p-6 bg-white border-l-4 border-red rounded-lg shadow-lg animate-fadeIn">
-                                    <button onclick="toggleDetails(3)" class="float-right text-red hover:text-grey">✕</button>
-                                    <h3 class="text-xl font-bold mb-2 underline">
-                                        <a href="https://pedroejoaoeditores.com.br/produto/letramento-digital-e-ensino-de-linguagens-coletanea-didatica-para-a-pratica-docente/" target="_blank" rel="noopener noreferrer">
-                                            Framework para Universos Ficcionais no ensino de linguagens
-                                        </a>
-                                    </h3></h3>
-                                    <p class="text-sm">VALADARES, C. H. R.; GARCIA, C. D. . Framework para universos ficcionais no ensino de linguagens. In: Newton Vieira Lima Neto; Carolina Duarte Garcia; Elaine Teixeira da Silva; Jéssica Oliveira de Carvalho; Samuel de Sá Ribeiro. (Org.). Letramento Digital e Ensino de Linguagens: coletânea didática para a prática docente. 1ed. São Carlos: Pedro & João Editores, 2022, v. 1, p. 1-163.</p>
-                                </div>
-
-                                <div id="details-4" class="hidden mt-6 p-6 bg-white border-l-4 border-red rounded-lg shadow-lg animate-fadeIn">
-                                    <button onclick="toggleDetails(4)" class="float-right text-red hover:text-grey">✕</button>
-                                    <h3 class="text-xl font-bold mb-2 underline">
-                                        <a href="https://drive.google.com/file/d/1CJnAaFr_99zkMZyGd65c_lMWD33dau6V/view" target="_blank" rel="noopener noreferrer">
-                                            Zine - A coruja não vai te ensinar
-                                        </a>
-                                    </h3>
-                                    <p class="text-sm">Zine apresentado em parceria com o grupo Delta UFMG no evento "Minas Summit 2025".</p>
-                                </div>
-
-                                <div id="details-5" class="hidden mt-6 p-6 bg-white border-l-4 border-red rounded-lg shadow-lg animate-fadeIn">
-                                    <button onclick="toggleDetails(5)" class="float-right text-red hover:text-grey">✕</button>
-                                </div>
+                                <!-- Detalhes dinâmicos -->
+                                <div id="pub-details"></div>
                             </div>
                         </div>
                     </section>
@@ -150,27 +74,7 @@
         </footer>
     </div>
     <script src="navigation.js"></script>
-    <script>
-        function toggleDetails(id) {
-            // Esconde todos os detalhes
-            for (let i = 1; i <= 5; i++) {
-                const detail = document.getElementById('details-' + i);
-                if (i !== id) {
-                    detail.classList.add('hidden');
-                }
-            }
-            // Toggle do detalhe clicado
-            const currentDetail = document.getElementById('details-' + id);
-            currentDetail.classList.toggle('hidden');
-            
-            // Scroll suave para o detalhe
-            if (!currentDetail.classList.contains('hidden')) {
-                setTimeout(() => {
-                    currentDetail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 100);
-            }
-        }
-    </script>
+    <script src="publications.js"></script>
     <style>
         @keyframes fadeIn {
             from {
