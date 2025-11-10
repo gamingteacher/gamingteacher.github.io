@@ -41,7 +41,7 @@ function renderLinks(items) {
 
   items.forEach((it) => {
     const card = document.createElement('div');
-    card.className = 'bg-grey/5 p-6 rounded-lg shadow-md border border-grey/10 hover:border-red transition-colors';
+    card.className = 'bg-white/80 p-6 rounded-lg shadow-md border border-grey/10 hover:border-red transition-colors';
 
     const h3 = document.createElement('h3');
     h3.className = 'text-xl font-bold mb-2 text-red flex items-center gap-2';
@@ -55,7 +55,7 @@ function renderLinks(items) {
     a.href = it.link || '#';
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
-    a.className = 'inline-flex items-center gap-2 text-green hover:underline';
+    a.className = 'inline-flex items-center gap-2 text-green font-semibold hover:underline';
 
     // favicon
     const fav = document.createElement('img');

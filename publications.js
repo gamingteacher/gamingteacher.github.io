@@ -60,12 +60,12 @@ function renderPublications(pubs) {
 
   pubs.forEach((pub) => {
     const card = document.createElement('div');
-    card.className = 'publication-card cursor-pointer bg-grey/10 border border-white/10 rounded-lg p-4 transition-all hover:border-red focus:outline-none focus:ring-2 focus:ring-red/50';
+    card.className = 'publication-card cursor-pointer bg-white/80 border border-white rounded-lg p-4 transition-all hover:border-red focus:outline-none focus:ring-2 focus:ring-red/50';
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
 
     const cover = document.createElement('div');
-    cover.className = 'aspect-[2/3] mb-2 flex items-center justify-center bg-white rounded overflow-hidden';
+    cover.className = 'aspect-[2/3] mb-2 flex items-center justify-center bg-white rounded shadow-xl overflow-hidden';
 
     if (pub.coverImage) {
       const img = document.createElement('img');
