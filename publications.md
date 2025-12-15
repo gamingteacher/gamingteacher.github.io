@@ -16,7 +16,7 @@ reference: VALADARES, C. H. R. Tomando o controle: affordances de jogos digitais
 
 coverImage: ./images/Thumb2.png
 shortTitle:
-authors: Valadares, Garcia
+authors: Valadares; Garcia
 year: 2022
 fullTitle: Artigo: Framework para Universos Ficcionais no ensino de linguagens 
 link: https://pedroejoaoeditores.com.br/produto/letramento-digital-e-ensino-de-linguagens-coletanea-didatica-para-a-pratica-docente/
@@ -24,8 +24,16 @@ reference: VALADARES, C. H. R.; GARCIA, C. D. . Framework para universos ficcion
 
 coverImage: ./images/Thumb3.png
 shortTitle:
-authors: Valadares,
+authors: Valadares
 year: 2025
 fullTitle: Zine: A coruja não vai te ensinar  
 link: https://drive.google.com/file/d/1CJnAaFr_99zkMZyGd65c_lMWD33dau6V/view
 reference: Zine apresentado em parceria com o grupo Delta UFMG no evento "Minas Summit 2025".
+
+coverImage: 
+shortTitle: Ludic by design: Integrating digital games into an ESL curriculum to foster engagement and joy
+authors: Valadares
+year: 2025
+fullTitle: Ludic by design: Integrating digital games into an ESL curriculum to foster engagement and joy  
+link: https://doi.org/10.55853/CP1_2
+reference: Valadares, C. (2025). Ludic by design: Integrating digital games into an ESL curriculum to foster engagement and joy. Ludic Language Pedagogy: LLPx 2025 Symposium Post-Conference Publication, 4–11. https://doi.org/10.55853/CP1_2
