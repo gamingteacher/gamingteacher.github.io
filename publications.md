@@ -37,3 +37,11 @@ year: 2025
 fullTitle: Ludic by design: Integrating digital games into an ESL curriculum to foster engagement and joy  
 link: https://doi.org/10.55853/CP1_2
 reference: Valadares, C. (2025). Ludic by design: Integrating digital games into an ESL curriculum to foster engagement and joy. Ludic Language Pedagogy: LLPx 2025 Symposium Post-Conference Publication, 4–11. https://doi.org/10.55853/CP1_2
+
+coverImage: 
+shortTitle: Possibilidades lúdicas
+authors: Valadares
+year: 2026
+fullTitle: Possibilidades lúdicas: explorando as affordances de jogos na educação de línguas adicionais  
+link: https://periodicos.ufmg.br/index.php/textolivre/article/view/61768
+reference: VALADARES, C. H. R. Possibilidades lúdicas: explorando as affordances de jogos na educação de línguas adicionais. Texto Livre, Belo Horizonte-MG, v. 19, p. e61768, 2026. DOI: 10.1590/1983-3652.2026.61768. Disponível em: https://periodicos.ufmg.br/index.php/textolivre/article/view/61768. Acesso em: 2 jun. 2026.
