@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Teacher — Prof. Carlos Valadares</title>
+    <meta name="description"
+        content="Personal website of Prof. Carlos Valadares — researcher in Applied Linguistics, digital games and technologies in language teaching.">
+    <link rel="alternate" hreflang="pt-br" href="index.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ══════════════════════════════════════════
+       ANIMATED CANVAS BACKGROUND
+  ══════════════════════════════════════════ -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- ══════════════════════════════════════════
+       LANDING / PRESS START SCREEN
+  ══════════════════════════════════════════ -->
+    <div id="screen-start" role="main" aria-label="Start screen">
+        <div class="start-card">
+            <span class="name-label">Prof. Carlos Valadares</span>
+            <img src="https://i.ibb.co/j2p7NY1/Gaming-Teacher-Logo-New.png" alt="Gaming Teacher logo"
+                class="start-logo">
+            <h1 class="start-title">Gaming Teacher</h1>
+            <p class="start-sub">Learning can be fun!</p>
+            <button id="btn-start" aria-label="Enter the site">▶ Press Start</button>
+            <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+                <a href="index.html" lang="pt-BR" hreflang="pt-BR" >PT</a>
+                <a href="en.html" lang="en" hreflang="en" class="active" aria-current="page">EN</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+       MAIN SCREEN
+  ══════════════════════════════════════════ -->
+    <div id="screen-main" aria-hidden="true">
+
+        <!-- Mobile header -->
+        <header id="mobile-header">
+            <img src="https://i.ibb.co/j2p7NY1/Gaming-Teacher-Logo-New.png" alt="Gaming Teacher logo"
+                class="mobile-logo" width="20px">
+            <span class="mh-title">Gaming Teacher</span>
+            <button id="btn-hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </header>
+
+        <!-- ── SIDEBAR ───────────────────────────── -->
+        <aside id="sidebar" aria-label="Side navigation">
+            <div class="sidebar-brand">
+                <img src="https://i.ibb.co/j2p7NY1/Gaming-Teacher-Logo-New.png" alt="Gaming Teacher logo"
+                    class="sidebar-logo">
+                <div>
+                    <h1>Gaming Teacher</h1>
+                    <p class="tagline">Learning can be fun!</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Site sections">
+                <a href="#sobre" class="active" id="nav-sobre">About me</a>
+                <a href="#ensino" id="nav-ensino">Teaching</a>
+                <a href="#publicacoes" id="nav-publicacoes">Publications</a>
+                <a href="#projetos" id="nav-projetos">Projects</a>
+                <a href="#consultorias" id="nav-consultorias">Consulting</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+                <a href="index.html" lang="pt-BR" hreflang="pt-BR" >PT</a>
+                <a href="en.html" lang="en" hreflang="en" class="active" aria-current="page">EN</a>
+            </div>
+                <p class="sidebar-author">Prof. Carlos Valadares</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/carlosvaladares/" target="_blank" rel="noopener noreferrer"
+                        class="social-link" aria-label="LinkedIn">
+                        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://www.twitch.tv/gamingtchr" target="_blank" rel="noopener noreferrer"
+                        class="social-link" aria-label="Twitch">
+                        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M11.571 4.714h1.715v5.143H11.57zm4.572 0H17.86v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0H6zm14.571 11.143-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714v9.429z" />
+                        </svg>
+                        <span>Twitch</span>
+                    </a>
+                    <a href="https://www.instagram.com/gaming.teacher/" target="_blank" rel="noopener noreferrer"
+                        class="social-link" aria-label="Instagram">
+                        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12 2c-2.717 0-3.056.01-4.122.06-1.065.05-1.79.217-2.428.465a4.902 4.902 0 00-1.772 1.153 4.902 4.902 0 00-1.153 1.772c-.247.637-.415 1.363-.465 2.428C2.01 8.944 2 9.283 2 12s.01 3.056.06 4.122c.05 1.065.218 1.79.465 2.428a4.902 4.902 0 001.153 1.772 4.902 4.902 0 001.772 1.153c.637.247 1.363.415 2.428.465C8.944 21.99 9.283 22 12 22s3.056-.01 4.122-.06c1.065-.05 1.79-.218 2.428-.465a4.902 4.902 0 001.772-1.153 4.902 4.902 0 001.153-1.772c.247-.637.415-1.363.465-2.428C21.99 15.056 22 14.717 22 12s-.01-3.056-.06-4.122c-.05-1.065-.218-1.79-.465-2.428a4.902 4.902 0 00-1.153-1.772 4.902 4.902 0 00-1.772-1.153c-.637-.247-1.363-.415-2.428-.465C15.056 2.01 14.717 2 12 2zm0 1.44c2.67 0 2.987.01 4.042.058.975.044 1.504.207 1.857.344.466.174.766.39.94.565.174.174.39.466.565.94.137.353.3.882.344 1.857.048 1.055.058 1.372.058 4.042s-.01 2.987-.058 4.042c-.044.975-.207 1.504-.344 1.857a3.457 3.457 0 01-.565.94 3.457 3.457 0 01-.94.565c-.353.137-.882.3-1.857.344-1.055.048-1.372.058-4.042.058s-2.987-.01-4.042-.058c-.975-.044-1.504-.207-1.857-.344a3.457 3.457 0 01-.94-.565 3.457 3.457 0 01-.565-.94c-.137-.353-.3-.882-.344-1.857C3.45 15.056 3.44 14.717 3.44 12s.01-2.987.058-4.042c.044-.975.207-1.504.344-1.857.174-.466.39-.766.565-.94.174-.174.466-.39.94-.565.353-.137.882-.3 1.857-.344C9.013 3.45 9.33 3.44 12 3.44zm0 5.46c-1.944 0-3.5 1.556-3.5 3.5s1.556 3.5 3.5 3.5 3.5-1.556 3.5-3.5-1.556-3.5-3.5-3.5zm0 5.58c-1.15 0-2.08-.93-2.08-2.08s.93-2.08 2.08-2.08 2.08.93 2.08 2.08-.93 2.08-2.08 2.08zm4.965-6.415a1.2 1.2 0 110-2.4 1.2 1.2 0 010 2.4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ── CONTENT AREA ──────────────────────── -->
+        <main id="content-area" aria-label="Main content">
+
+            <!-- ── ABOUT ME ── -->
+            <section class="section" id="sobre" aria-labelledby="h-sobre">
+                <div class="section-header">
+                    <h2 id="h-sobre">About me</h2>
+                </div>
+
+                <div class="profile-row">
+                    <img src="./images/Photo.jpg" alt="Photo of Prof. Carlos Valadares" class="profile-photo">
+                    <div>
+                        <p>I hold a Master's degree and am a Ph.D. candidate in Linguistic Studies at the Federal
+                            University of Minas Gerais (UFMG), and I have a degree in Letters — Portuguese/English from
+                            the Federal University of Viçosa (UFV). My path is marked by a combination of love for
+                            languages and fascination with digital technologies, which allows me to work at the
+                            intersection of language teaching, academic research and technology consulting.</p>
+                        <p>I conduct research in Applied Linguistics, with a special focus on the use of games and
+                            digital tools as allies of the learning process. As a teacher and researcher, I constantly
+                            seek to build bridges between academic theory and innovative pedagogical practices,
+                            turning the classroom into a dynamic and engaging environment.</p>
+                    </div>
+                </div>
+
+                <blockquote class="gt-blockquote">
+                    <p>"Video games made me learn English in a fun and immersive way. Technology has always attracted
+                        me, and the moment I started my Letters degree, I felt I had found my place in the world."</p>
+                </blockquote>
+            </section>
+
+            <!-- ── TEACHING ── -->
+            <section class="section" id="ensino" aria-labelledby="h-ensino">
+                <div class="section-header">
+                    <h2 id="h-ensino">Teaching</h2>
+                </div>
+
+                <p>I worked as a professor in the Department of Languages at the Federal University of Viçosa, where I
+                    taught courses in English Language, Digital Technologies, and Language Teaching and Learning. My
+                    classroom experience ranges from basic and advanced instruction to intensive and extensive
+                    extension courses, always focusing on student engagement.</p>
+                <p>Beyond direct teaching, I have a strong presence in pedagogical coordination. I am a member of the
+                    coordinating committee of the English Language Extension Course (CELIN) at UFV and served as a
+                    Mentor Professor, guiding new teachers so they can effectively integrate innovative technologies
+                    and methodologies into their teaching practices.</p>
+            </section>
+
+            <!-- ── PUBLICATIONS ── -->
+            <section class="section" id="publicacoes" aria-labelledby="h-publicacoes">
+                <div class="section-header">
+                    <h2 id="h-publicacoes">Publications</h2>
+                </div>
+
+                <!-- Research blurb -->
+                <div>
+                    <p>My scientific output focuses on the field of Applied Linguistics, exploring how digital
+                        technologies can enhance additional language teaching. Throughout my career, I have investigated
+                        in depth the affordances of digital games and Ludic Language Pedagogy, analyzing how play can
+                        promote deeper and more enjoyable learning.</p>
+                    <p>Currently, my research focus is on the impact of Generative Artificial Intelligence on language
+                        teaching. I investigate how these tools can expand teacher agency and support the redesign of
+                        pedagogical practices, seeking solutions that combine cutting-edge technology and educational
+                        intentionality to prepare students for a digital world.</p>
+                    <p></p>
+                </div>
+
+                <!-- Dynamic publications grid (populated by publications.js) -->
+                <div id="pub-grid" aria-label="Publications grid"></div>
+                <div id="pub-details" aria-live="polite"></div>
+            </section>
+
+            <!-- ── PROJECTS ── -->
+            <section class="section" id="projetos" aria-labelledby="h-projetos">
+                <div class="section-header">
+                    <h2 id="h-projetos">Projects</h2>
+                </div>
+
+                <p>Besides my work in teaching, I have solid experience in several areas of computing. For about 20 years, I have used Linux and open-source software, as an enthusiast and advocate of free software as an essential path toward building a fairer, more transparent and more accessible digital society.</p>
+
+                <p>I developed the <a href="https://drive.google.com/file/d/1i8EcOvABorVXCifIqik81kFzsVk3bf1W/view?usp=sharing" target="_blank" rel="noopener noreferrer">UFV Map in Minecraft</a>, reproducing the main buildings of the Federal University of Viçosa campus inside the game, at a scale close to reality. I also collaborated on the development of <a href="https://cheapshot.itch.io/photoloco" target="_blank" rel="noopener noreferrer">PhotoLoco</a>, a community micro-game created by teachers from the Ludic Language Pedagogy community, reinforcing the commitment to creating playful and collaborative learning environments.</p>
+
+                <p>In the field of educational systems development, I am the creator of <a href="https://planit-app.pages.dev/" target="_blank" rel="noopener noreferrer">planit</a>, an LMS (Learning Management System) with live presentation features to energize digital teaching. I am currently the <em>lead developer</em> of <a href="https://sabia-ufmg.vercel.app/" target="_blank" rel="noopener noreferrer">SabIA</a> (Saberes sobre Inteligência Artificial para a Aprendizagem de Línguas — Knowledge about Artificial Intelligence for Language Learning), a platform curating AI tools for language teaching, developed by the DELTA group at UFMG.</p>
+
+                <table class="projects-gallery-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="https://drive.google.com/file/d/1i8EcOvABorVXCifIqik81kFzsVk3bf1W/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-thumb-card">
+                                    <img src="https://i.ibb.co/R4g12CZj/image.png" alt="UFV - Minecraft" />
+                                    <span>UFV - Minecraft</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://cheapshot.itch.io/photoloco" target="_blank" rel="noopener noreferrer" class="project-thumb-card">
+                                    <img src="https://img.itch.zone/aW1hZ2UvMTQ1MTA5My84NDczMzkxLmpwZWc=/original/lfCy2c.jpeg" alt="PhotoLoco" />
+                                    <span>PhotoLoco</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://planit-app.pages.dev/" target="_blank" rel="noopener noreferrer" class="project-thumb-card">
+                                    <img src="https://i.ibb.co/RktK4pWt/image.png" alt="Planit" />
+                                    <span>Planit</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://sabia-ufmg.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-thumb-card">
+                                    <img src="https://i.ibb.co/vv6srQx3/image.png" alt="SabIA" />
+                                    <span>SabIA</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ── CONSULTORIAS ── -->
+            <section class="section" id="consultorias" aria-labelledby="h-consultorias">
+                <div class="section-header">
+                    <h2 id="h-consultorias">Consulting</h2>
+                </div>
+
+                <p>I am open to educational partnerships and consulting for language schools, regular schools and
+                    test-prep courses. My goal is to help institutions modernize their teaching methods through the
+                    strategic integration of new technologies and active methodologies.</p>
+                <p>I offer training and courses focused on the use of digital games and Artificial Intelligence tools
+                    in language teaching. If you want to turn your institution's language education into a more
+                    technological, playful and efficient experience, let's talk about how I can help your team reach
+                    these goals.</p>
+
+                <div class="cta-box">
+                    <h3>Let's talk?</h3>
+                    <p>Get in touch and find out how we can modernize teaching at your institution.</p>
+                    <a href="mailto:prof.carlosvaladares@gmail.com" class="btn-contact" id="contact-email-btn">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        prof.carlosvaladares@gmail.com
+                    </a>
+                </div>
+
+                <!-- Footer -->
+                <footer
+                    style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(52,52,52,.1); text-align: center; font-size: .82rem; opacity: .5;">
+                    &copy; 2026 Carlos Henrique Valadares. All rights reserved.
+                </footer>
+            </section>
+
+        </main>
+    </div><!-- /screen-main -->
+
+    <script src="canvas-bg.js"></script>
+    <script src="publications.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>

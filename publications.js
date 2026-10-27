@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
   loadPublications();
 });
 
+/* ── UI strings ─────────────────────────────── */
+const IS_EN = document.documentElement.lang.toLowerCase().startsWith('en');
+const T = IS_EN
+  ? { loadError: 'Error loading publications.', prev: 'Previous publication', next: 'Next publication',
+      list: '☰ List', closeList: '✕ Close list', untitled: 'Untitled', pub: 'Publication' }
+  : { loadError: 'Erro ao carregar publicações.', prev: 'Publicação anterior', next: 'Próxima publicação',
+      list: '☰ Lista', closeList: '✕ Fechar lista', untitled: 'Sem título', pub: 'Publicação' };
+
 /* ── State ──────────────────────────────────── */
 let PUB_DATA = [];
 let activeIdx = 0;
@@ -24,7 +32,7 @@ async function loadPublications() {
   } catch (err) {
     console.error(err);
     const grid = document.getElementById('pub-grid');
-    if (grid) grid.innerHTML = '<p style="color:var(--red)">Erro ao carregar publicações.</p>';
+    if (grid) grid.innerHTML = `<p style="color:var(--red)">${T.loadError}</p>`;
   }
 }
 
@@ -77,7 +85,7 @@ function buildCoverflowShell() {
   const btnL = document.createElement('button');
   btnL.className = 'cf-arrow cf-arrow--left';
   btnL.id = 'cf-prev';
-  btnL.setAttribute('aria-label', 'Publicação anterior');
+  btnL.setAttribute('aria-label', T.prev);
   btnL.innerHTML = '&#8249;';
   btnL.addEventListener('click', () => navigate(-1));
 
@@ -90,7 +98,7 @@ function buildCoverflowShell() {
   const btnR = document.createElement('button');
   btnR.className = 'cf-arrow cf-arrow--right';
   btnR.id = 'cf-next';
-  btnR.setAttribute('aria-label', 'Próxima publicação');
+  btnR.setAttribute('aria-label', T.next);
   btnR.innerHTML = '&#8250;';
   btnR.addEventListener('click', () => navigate(1));
 
@@ -109,7 +117,7 @@ function buildCoverflowShell() {
   const toggleBtn = document.createElement('button');
   toggleBtn.className = 'cf-list-toggle';
   toggleBtn.id = 'cf-list-toggle';
-  toggleBtn.textContent = '☰ Lista';
+  toggleBtn.textContent = T.list;
   toggleBtn.setAttribute('aria-pressed', 'false');
   toggleBtn.addEventListener('click', toggleList);
 
@@ -138,7 +146,7 @@ function buildCoverflowShell() {
 
     const spanTitle = document.createElement('span');
     spanTitle.className = 'cf-li-title';
-    spanTitle.textContent = pub.fullTitle || pub.shortTitle || 'Sem título';
+    spanTitle.textContent = pub.fullTitle || pub.shortTitle || T.untitled;
 
     const spanYear = document.createElement('span');
     spanYear.className = 'cf-li-year';
@@ -199,7 +207,7 @@ function renderCoverflow() {
     card.dataset.idx = i;
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', i === activeIdx ? '0' : '-1');
-    card.setAttribute('aria-label', pub.fullTitle || pub.shortTitle || 'Publicação');
+    card.setAttribute('aria-label', pub.fullTitle || pub.shortTitle || T.pub);
 
     /* Cover face */
     const face = document.createElement('div');
@@ -216,7 +224,7 @@ function renderCoverflow() {
 
       const txt = document.createElement('div');
       txt.className = 'cf-card-text';
-      txt.textContent = pub.shortTitle || pub.fullTitle || 'Sem título';
+      txt.textContent = pub.shortTitle || pub.fullTitle || T.untitled;
 
       const badge = document.createElement('div');
       badge.className = 'cf-card-badge';
@@ -243,7 +251,7 @@ function renderCoverflow() {
     /* ---- Dot ---- */
     const dot = document.createElement('button');
     dot.className = 'cf-dot' + (i === activeIdx ? ' active' : '');
-    dot.setAttribute('aria-label', `Publicação ${i + 1}`);
+    dot.setAttribute('aria-label', `${T.pub} ${i + 1}`);
     dot.addEventListener('click', () => goTo(i));
     dots.appendChild(dot);
   });
@@ -337,7 +345,7 @@ function toggleList() {
   wrap.setAttribute('aria-hidden', String(!listOpen));
   btn.setAttribute('aria-pressed', String(listOpen));
   btn.classList.toggle('active', listOpen);
-  btn.textContent = listOpen ? '✕ Fechar lista' : '☰ Lista';
+  btn.textContent = listOpen ? T.closeList : T.list;
 
   /* Scroll active item into view when opening */
   if (listOpen) {
@@ -366,10 +374,10 @@ function showDetails(idx) {
     a.href = pub.link;
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
-    a.textContent = pub.fullTitle || pub.shortTitle || 'Publicação';
+    a.textContent = pub.fullTitle || pub.shortTitle || T.pub;
     h3.appendChild(a);
   } else {
-    h3.textContent = pub.fullTitle || pub.shortTitle || 'Publicação';
+    h3.textContent = pub.fullTitle || pub.shortTitle || T.pub;
   }
 
   /* Reference */
