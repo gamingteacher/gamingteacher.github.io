@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record and Reverse</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Adding a few specific layout helpers allowed by the design system */
+        .app-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: var(--white);
+        }
+        .app-header {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border-bottom: 1px solid rgba(52, 52, 52, 0.1);
+            margin-bottom: 30px;
+        }
+        .app-header img { height: 60px; }
+        .app-header h1 { font-size: 1.8rem; color: var(--grey); }
+
+        .how-to-container {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+        #how-to-box {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(52, 52, 52, 0.1);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-top: 10px;
+            display: none;
+            box-shadow: var(--shadow);
+        }
+
+        .visualizer-container {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            margin-bottom: 10px;
+            width: 80%;
+            max-width: 600px;
+            padding: 0 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(52, 52, 52, 0.1);
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+        }
+        .bar {
+            flex: 1;
+            max-width: 6px;
+            height: 6%;
+            min-height: 4px;
+            background: rgba(52, 52, 52, 0.35);
+            border-radius: 4px;
+            transition: height 0.06s linear, background 0.2s;
+        }
+        .visualizer-container.recording .bar { background: var(--red); }
+        .visualizer-container.playing .bar { background: var(--green); }
+        #status {
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            margin-bottom: 40px;
+            min-height: 1.5em;
+            opacity: .7;
+        }
+
+        .controls-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .btn-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform var(--transition), box-shadow var(--transition);
+            background: var(--grey);
+            color: white;
+        }
+        .btn-circle svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .btn-circle:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+        .btn-circle:hover:not(:disabled) { transform: scale(1.05); }
+        .btn-circle:active:not(:disabled) { transform: scale(0.95); }
+
+        .btn-main { background: var(--green); box-shadow: 0 4px 16px rgba(42, 173, 81, 0.3); }
+        .btn-main.recording { 
+            background: var(--red); 
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(217, 76, 80, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(217, 76, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(217, 76, 80, 0); }
+        }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="app-wrapper">
+    <header class="app-header">
+        <a href="../index.html" aria-label="Gaming Teacher home"><img src="https://i.ibb.co/j2p7NY1/Gaming-Teacher-Logo-New.png" alt="Logo"></a>
+        <h1>Record and Reverse</h1>
+    </header>
+
+    <div class="how-to-container">
+        <button id="toggle-how-to" style="background: var(--red); color: white; padding: 10px 25px; border-radius: 30px; border: none; font-weight: 700; cursor: pointer;">
+            How to play
+        </button>
+        <div id="how-to-box">
+            <p>1. Click the <b>green microphone</b> to start recording; click it again to stop.</p>
+            <p>2. Once finished, the center button becomes <b>Rewind</b>: click it to hear the audio reversed.</p>
+            <p>3. Use the <b>left button</b> to play the normal recording.</p>
+            <p>4. Use the <b>right button</b> to delete and start over.</p>
+        </div>
+    </div>
+
+    <div class="visualizer-container" id="visualizer" aria-hidden="true"></div>
+    <div id="status" aria-live="polite">Ready to record</div>
+
+    <div class="controls-container">
+        <button id="btn-replay" class="btn-circle" title="Replay normal" aria-label="Replay normal" disabled>
+            <svg id="replay-icon" width="30" height="30" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        </button>
+
+        <button id="btn-main" class="btn-circle btn-main" title="Record" aria-label="Record">
+            <svg id="main-icon" width="40" height="40" viewBox="0 0 24 24"></svg>
+        </button>
+
+        <button id="btn-delete" class="btn-circle" title="Delete" aria-label="Delete" disabled>
+            <svg width="30" height="30" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+        </button>
+    </div>
+</div>
+
+<script src="AudioRecorder.js"></script>
+</body>
+</html>

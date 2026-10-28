@@ -1014,3 +1014,51 @@ body {
     font-size: 1.8rem;
   }
 }
+/* Secondary link button (start card / resources) */
+.btn-secondary {
+  font-family: var(--font);
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--red);
+  text-decoration: none;
+  border: 2px solid var(--red);
+  border-radius: 3rem;
+  padding: .55rem 1.6rem;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.btn-secondary:hover {
+  background: var(--red);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.applet-list {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+.applet-list a {
+  display: block;
+  padding: .8rem 1.2rem;
+  border: 2px solid var(--red);
+  border-radius: 1rem;
+  color: var(--red);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+
+.applet-list a:hover {
+  background: var(--red);
+  color: var(--white);
+}
+
+.applet-list small {
+  display: block;
+  font-weight: 400;
+  opacity: .85;
+}
