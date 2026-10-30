@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Labyrinth | Gaming Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="labyrinth.css">
+</head>
+<body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <main class="launcher">
+    <section class="panel glass fade-in-up">
+      <h1>Labyrinth</h1>
+      <p>Two players, two screens. Each person opens only their own view, on their own device.</p>
+      <div class="choices">
+        <div class="choice glass">
+          <h2 style="color:var(--red)">Map view</h2>
+          <p>See the labyrinth from above and guide the explorer. Never share this screen with the player.</p>
+          <a class="btn" id="mapLink" href="map.html">Open the map</a>
+        </div>
+        <div class="choice glass">
+          <h2 style="color:var(--red)">Game view</h2>
+          <p>Explore the labyrinth in first person. Don't look at the map!</p>
+          <a class="btn" id="gameLink" href="game.html">Start playing</a>
+        </div>
+      </div>
+      <div class="seed-row">
+        <label for="seed" style="font-weight:700">Level seed</label>
+        <input id="seed" class="seed" maxlength="6" autocomplete="off" spellcheck="false">
+        <button id="random" class="btn secondary">Random</button>
+      </div>
+      <p id="msg" style="font-size:.85rem">Both screens must use the same 6-character seed.</p>
+    </section>
+  </main>
+  <script src="../../canvas-bg.js"></script>
+  <script type="module" src="launcher.js"></script>
+</body>
+</html>

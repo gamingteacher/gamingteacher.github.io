@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Labyrinth – Level Overview | Gaming Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="labyrinth.css">
+</head>
+<body>
+  <main class="content">
+    <div class="content-inner">
+      <section class="section overview-section glass fade-in-up">
+        <div class="overview-header">
+          <div class="overview-title">
+            <a href="../../index.html" aria-label="Gaming Teacher home">
+              <img src="https://i.ibb.co/j2p7NY1/Gaming-Teacher-Logo-New.png" alt="Gaming Teacher">
+            </a>
+            <h1>Labyrinth Map Overview</h1>
+          </div>
+          <a class="btn secondary overview-back" href="index.html">🠜 Back</a>
+        </div>
+        <div class="overview-controls">
+          <label for="seed">Choose level seed (6 characters):</label>
+          <div class="overview-seed-row">
+            <input id="seed" class="seed" maxlength="6" autocomplete="off" spellcheck="false">
+            <button id="load" class="btn">Load</button>
+            <button id="random" class="btn secondary">Random seed</button>
+          </div>
+          <p id="msg" class="overview-message" aria-live="polite"></p>
+        </div>
+        <p>Seed: <strong id="seedLabel"></strong> · Path to exit: <strong id="pathLen"></strong> steps</p>
+      </section>
+      <section class="section glass fade-in-up">
+        <div id="map" class="grid-map" aria-label="Labyrinth map"></div>
+      </section>
+      <section class="section glass fade-in-up">
+        <h2>Legend</h2>
+        <div class="legend">
+          <span><i class="l-wall"></i>Wall</span>
+          <span><i class="l-treasure"></i>Treasure</span>
+          <span><i class="l-key"></i>Key</span>
+          <span><i class="l-trap"></i>Trap</span>
+          <span><i class="l-exit"></i>Exit</span>
+          <span><i class="l-spawn"></i>Start</span>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="overview.js"></script>
+</body>
+</html>

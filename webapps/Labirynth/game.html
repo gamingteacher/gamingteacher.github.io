@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Labyrinth – Game | Gaming Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="labyrinth.css">
+</head>
+<body class="game">
+  <canvas id="view"></canvas>
+
+  <div class="hud-top glass fade-in-up">
+    <span class="counter">🔑 Keys <b id="keys">0</b></span>
+    <span class="counter health">❤ <span class="hbar"><span id="healthFill"></span></span> <b id="healthText">100</b></span>
+    <span class="counter">💎 Treasures <b id="treasures">0</b>/<span id="treasuresTotal">0</span></span>
+    <span class="counter">⏱ <b id="timer">0.00</b>s</span>
+    <label class="seed-label" for="seed">Seed</label>
+    <input id="seed" class="seed" maxlength="6" autocomplete="off" spellcheck="false">
+    <button id="load" class="btn secondary">Load</button>
+    <button id="openScores" class="btn secondary">Scoreboard</button>
+    <a class="btn secondary" href="index.html">Exit</a>
+  </div>
+  <div id="toast" class="toast glass"></div>
+
+  <div class="hud-bottom">
+    <div class="dpad glass fade-in-up">
+      <button class="up" data-dir="up" aria-label="Forward">▲</button>
+      <button class="left" data-dir="left" aria-label="Turn left">◀</button>
+      <button class="down" data-dir="down" aria-label="Backward">▼</button>
+      <button class="right" data-dir="right" aria-label="Turn right">▶</button>
+    </div>
+    <button id="action" class="btn action-btn fade-in-up">Action</button>
+  </div>
+
+  <div id="winModal" class="modal-backdrop">
+    <div class="modal glass">
+      <h2>Well Done!</h2>
+      <div class="current-run"><small>Your time</small><span id="winTime"></span></div>
+      <table class="score-table"><thead><tr><th>#</th><th>Seed</th><th>Time</th></tr></thead><tbody id="winScores"></tbody></table>
+      <div class="row">
+        <button id="again" class="btn">Play again</button>
+        <button id="newSeed" class="btn secondary">New random seed</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="scoreModal" class="modal-backdrop">
+    <div class="modal glass">
+      <h2>Scoreboard</h2>
+      <p>Fastest 5 runs</p>
+      <table class="score-table"><thead><tr><th>#</th><th>Seed</th><th>Time</th></tr></thead><tbody id="scores"></tbody></table>
+      <button id="closeScores" class="btn">Close</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

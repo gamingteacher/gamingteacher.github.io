@@ -8,6 +8,7 @@
  * Speed can be changed at runtime:  setFlyoverSpeed(0.5)  // 0 = paused, 1 = default
  */
 (function () {
+  const scriptSrc = document.currentScript && document.currentScript.src;
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
@@ -48,7 +49,7 @@
     }
     start();
   };
-  img.src = 'background.png';
+  img.src = scriptSrc ? new URL('background.png', scriptSrc).href : 'background.png';
 
   function resize() {
     dpr = window.devicePixelRatio || 1;
