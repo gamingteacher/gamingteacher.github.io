@@ -4,7 +4,7 @@ const FOV = Math.PI / 3;
 const MOVE_TIME = 0.28; // seconds per square
 const TURN_TIME = 0.22; // seconds per 90° turn
 const DIRS = [[1, 0], [0, 1], [-1, 0], [0, -1]];
-const TEX = 64;
+const TEX = 128;
 const MAX_RENDER_W = 640; // internal resolution; the canvas is upscaled with pixelated scaling
 const TEXTURE_FILES = { wall: 'textures/BrickWall.png', floor: 'textures/Floor.png', ceiling: 'textures/Ceiling.png' };
 
