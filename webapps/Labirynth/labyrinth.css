@@ -12,7 +12,7 @@
   --radius: 1.5rem;
   --shadow: 0 8px 32px rgba(52, 52, 52, .12);
   --transition: 0.3s ease;
-  --glass-bg: rgba(255, 255, 255, .55);
+  --glass-bg: rgba(255, 255, 255, .65);
   --glass-border: 1px solid rgba(52, 52, 52, .12);
 }
 
@@ -27,8 +27,6 @@ body {
 
 .glass {
   background: var(--glass-bg);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
   border: var(--glass-border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -160,14 +158,22 @@ body.game { overflow: hidden; background: #111; }
 
 .hud-top {
   position: fixed; top: 1rem; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: center;
-  padding: .6rem 1.2rem; z-index: 10;
+  display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: start;
+  padding: .6rem 1rem; z-index: 10;
 }
+
 .hud-top .counter { font-weight: 800; font-size: 1.1rem; }
 .hud-top .counter b { color: var(--red); }
-.hud-top .seed-label { font-weight: 700; }
-.hud-top input.seed { width: 7.5rem; padding: .4rem .6rem; }
 .hud-top .btn { padding: .45rem 1rem; font-size: .9rem; }
+
+.hud-top-left {
+  position: fixed; top: 1rem; left: 1rem; z-index: 10; width: 150px;
+  display: grid; gap: 0.5rem; align-items: center; flex-wrap: wrap; justify-content: center;
+  padding: .6rem 1.2rem;
+}
+.hud-top-left .seed-label { font-weight: 700; }
+.hud-top-left input.seed { width: 7.5rem; padding: .4rem .6rem; }
+
 
 .hud-bottom {
   position: fixed; left: 0; right: 0; bottom: 1rem; z-index: 10;
@@ -178,14 +184,14 @@ body.game { overflow: hidden; background: #111; }
 .dpad { display: grid; grid-template-columns: repeat(3, 3.4rem); grid-template-rows: repeat(3, 3.4rem); gap: .4rem; padding: .8rem; }
 .dpad button {
   font-family: var(--font); font-size: 1.3rem; font-weight: 800;
-  border: none; border-radius: 1rem; cursor: pointer;
+  border: solid 1px var(--white); border-radius: 1rem; cursor: pointer;
   background: rgba(52, 52, 52, .85); color: var(--white);
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
 }
 .dpad button:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0, 0, 0, .3); background: var(--red); }
 .dpad .up { grid-area: 1 / 2; } .dpad .left { grid-area: 2 / 1; }
 .dpad .down { grid-area: 3 / 2; } .dpad .right { grid-area: 2 / 3; }
-.action-btn { font-size: 1.4rem; padding: 1.1rem 2.6rem; margin-bottom: 1rem; }
+.action-btn { width: 5rem; height: 5rem; border: solid 1px var(--white); font-size: 1.6rem; padding: 0rem; margin-bottom: 3rem; }
 
 .toast {
   position: fixed; top: 5.5rem; left: 50%; transform: translateX(-50%);

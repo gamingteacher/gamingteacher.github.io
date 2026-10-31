@@ -10,28 +10,29 @@
 </head>
 <body class="game">
   <canvas id="view"></canvas>
-
+  <div class="hud-top-left glass fade-in-up">
+    <label class="seed-label" style="text-align: center;" for="seed">Seed:</label>
+    <input id="seed" class="seed" maxlength="6" autocomplete="off" spellcheck="false">
+    <button id="load" class="btn secondary">Load</button>
+    <button id="openScores" class="btn secondary">Scoreboard</button>
+    <a class="btn secondary" style="text-align: center;" href="index.html">Exit</a>
+    </div>
   <div class="hud-top glass fade-in-up">
     <span class="counter">🔑 Keys <b id="keys">0</b></span>
     <span class="counter health">❤ <span class="hbar"><span id="healthFill"></span></span> <b id="healthText">100</b></span>
     <span class="counter">💎 Treasures <b id="treasures">0</b>/<span id="treasuresTotal">0</span></span>
     <span class="counter">⏱ <b id="timer">0.00</b>s</span>
-    <label class="seed-label" for="seed">Seed</label>
-    <input id="seed" class="seed" maxlength="6" autocomplete="off" spellcheck="false">
-    <button id="load" class="btn secondary">Load</button>
-    <button id="openScores" class="btn secondary">Scoreboard</button>
-    <a class="btn secondary" href="index.html">Exit</a>
   </div>
   <div id="toast" class="toast glass"></div>
 
   <div class="hud-bottom">
-    <div class="dpad glass fade-in-up">
+    <div class="dpad fade-in-up">
       <button class="up" data-dir="up" aria-label="Forward">▲</button>
       <button class="left" data-dir="left" aria-label="Turn left">◀</button>
       <button class="down" data-dir="down" aria-label="Backward">▼</button>
       <button class="right" data-dir="right" aria-label="Turn right">▶</button>
     </div>
-    <button id="action" class="btn action-btn fade-in-up">Action</button>
+    <button id="action" class="btn action-btn fade-in-up">A</button>
   </div>
 
   <div id="winModal" class="modal-backdrop">
